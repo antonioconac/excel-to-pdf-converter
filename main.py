@@ -18,6 +18,7 @@ for filepath in filepaths:
 
     pdf.set_font(family="Times", size=14, style="B")
     pdf.cell(w=50, h=8, txt=f"Date - {invoice_date}", ln=1)
+    pdf.cell(w=30, h=10, ln=1)
 
     df = pd.read_excel(filepath, sheet_name="Sheet 1")
 
@@ -52,7 +53,8 @@ for filepath in filepaths:
     pdf.cell(w=30, h=8, txt=str(total_sum), border=1, ln=1)
 
     #Add total sum sentence
-    pdf.set_font(family="Times", size=10)
+    pdf.set_font(family="Times", size=14, style="B")
+    pdf.cell(w=30, h=10, ln=1)
     pdf.cell(w=30, h=8, txt=f"The total price is {total_sum}", ln=1)
 
     pdf.output(f"PDFs/{filename}.pdf")
